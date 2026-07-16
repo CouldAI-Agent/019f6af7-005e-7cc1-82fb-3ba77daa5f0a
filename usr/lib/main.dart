@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Ka'idarGyaraBidiyo());
+  runApp(const KaidarGyaraBidiyo());
 }
 
-class Ka'idarGyaraBidiyo extends StatelessWidget {
-  const Ka'idarGyaraBidiyo({super.key});
+class KaidarGyaraBidiyo extends StatelessWidget {
+  const KaidarGyaraBidiyo({super.key});
 
   @override
   Widget build(BuildContext context) {
