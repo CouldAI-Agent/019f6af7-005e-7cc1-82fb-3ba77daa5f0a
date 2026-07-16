@@ -1,46 +1,39 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Ka'idarGyaraBidiyo());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Ka'idarGyaraBidiyo extends StatelessWidget {
+  const Ka'idarGyaraBidiyo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Manhajar Gyara Bidiyo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
+        '/': (context) => const ShafinGyaraBidiyo(title: 'Gyara Bidiyo'),
       },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class ShafinGyaraBidiyo extends StatefulWidget {
+  const ShafinGyaraBidiyo({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<ShafinGyaraBidiyo> createState() => _ShafinGyaraBidiyoState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class _ShafinGyaraBidiyoState extends State<ShafinGyaraBidiyo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,16 +45,30 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
+            const Icon(
+              Icons.video_library,
+              size: 100,
+              color: Colors.grey,
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Babu bidiyon da aka zaba tukuna.',
+              style: TextStyle(fontSize: 18),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: () {
+                // Action to select video
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Ana shirin zabar bidiyo...')),
+                );
+              },
+              icon: const Icon(Icons.add_a_photo),
+              label: const Text('Zabi Bidiyo don Gyarawa'),
+            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
     );
   }
 }
